@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace FreeCourse.Services.Catalog.Services
 {
-    internal class CourseService : ICourseService
+    public class CourseService : ICourseService
     {
         private readonly IMongoCollection<Course> _courseCollection;
         private readonly IMongoCollection<Category> _categoryCollection;
@@ -90,7 +90,7 @@ namespace FreeCourse.Services.Catalog.Services
             }
             else
             {
-                return Response<NoContent>.Success(200);
+                return Response<NoContent>.Success(204);
             }
         }
 
@@ -99,7 +99,7 @@ namespace FreeCourse.Services.Catalog.Services
             var result = await _courseCollection.DeleteOneAsync(x => x.Id == id);
             if (result.DeletedCount > 0)
             {
-                return Response<NoContent>.Success(200);
+                return Response<NoContent>.Success(204);
             }
             else
             {
