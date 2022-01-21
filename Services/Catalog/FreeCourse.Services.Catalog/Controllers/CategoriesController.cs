@@ -1,5 +1,4 @@
 ﻿using FreeCourse.Services.Catalog.Dtos;
-using FreeCourse.Services.Catalog.Models;
 using FreeCourse.Services.Catalog.Services;
 using FreeCourse.Shared.ControllerBases;
 using Microsoft.AspNetCore.Mvc;

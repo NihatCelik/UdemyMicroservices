@@ -9,7 +9,7 @@ namespace FreeCourse.Services.Basket.Services
         Task<Response<BasketDto>> GetBasket(string userId);
 
         Task<Response<bool>> SaveOrUpdate(BasketDto basketDto);
-        
+
         Task<Response<bool>> Delete(string userId);
     }
 }
