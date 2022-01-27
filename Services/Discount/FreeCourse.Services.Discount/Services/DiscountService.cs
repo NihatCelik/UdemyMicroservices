@@ -51,7 +51,7 @@ namespace FreeCourse.Services.Discount.Services
 
         public async Task<Response<NoContent>> Save(Models.Discount discount)
         {
-            var saveStatus = await _dbConnection.ExecuteAsync("INSERT INTO discount(userid, rate, code) Values(@userId, @Rate, @Code", discount);
+            var saveStatus = await _dbConnection.ExecuteAsync("INSERT INTO Discount(userid, rate, code) Values(@UserId, @Rate, @Code)", discount);
             if (saveStatus > 0)
             {
                 return Response<NoContent>.Success(204);
