@@ -5,4 +5,3 @@
         public int OrderId { get; set; }
     }
 }
-Mapping
