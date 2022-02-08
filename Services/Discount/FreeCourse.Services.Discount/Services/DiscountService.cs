@@ -2,7 +2,6 @@
 using FreeCourse.Shared.Dtos;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;

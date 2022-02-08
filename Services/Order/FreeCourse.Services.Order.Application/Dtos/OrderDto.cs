@@ -6,10 +6,9 @@ namespace FreeCourse.Services.Order.Application.Dtos
     public class OrderDto
     {
         public int Id { get; set; }
-        public string BuyerId { get;set; }
+        public string BuyerId { get; set; }
         public AddressDto Address { get; set; }
         public DateTime CreatedDate { get; set; }
-
-        private List<OrderItemDto> OrderItems;
+        private List<OrderItemDto> OrderItems { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace FreeCourse.Services.Order.Domain.OrderAggregate
         public string BuyerId { get; private set; }
         public Address Address { get; private set; }
         public DateTime CreatedDate { get; private set; }
-        
+
         private readonly List<OrderItem> _orderItems;
         public IReadOnlyCollection<OrderItem> OrderItems => _orderItems;
 
@@ -26,7 +26,7 @@ namespace FreeCourse.Services.Order.Domain.OrderAggregate
             _orderItems = new List<OrderItem>();
             CreatedDate = DateTime.Now;
         }
-        
+
         public decimal GetTotalPrice => _orderItems.Sum(u => u.Price);
 
         public void AddOrderItem(string productId, string productName, decimal price, string pictureUrl)
