@@ -1,5 +1,6 @@
 ﻿using FreeCourse.Shared.Dtos;
 using FreeCourse.Web.Models;
+using FreeCourse.Web.Services.Interfaces;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -14,7 +15,7 @@ using System.Security.Claims;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace FreeCourse.Web.Services.Interfaces
+namespace FreeCourse.Web.Services
 {
     public class IdentityService : IIdentityService
     {
@@ -146,7 +147,7 @@ namespace FreeCourse.Web.Services.Interfaces
         {
             return await _httpClient.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest
             {
-                Address = _serviceApiSettings.BaseUrl,
+                Address = _serviceApiSettings.IdentityBaseUri,
                 Policy = new DiscoveryPolicy { RequireHttps = false }
             });
         }
