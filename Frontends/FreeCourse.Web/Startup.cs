@@ -27,6 +27,7 @@ namespace FreeCourse.Web
             services.Configure<ClientSettings>(Configuration.GetSection("ClientSettings"));
             services.Configure<ServiceApiSettings>(Configuration.GetSection("ServiceApiSettings"));
             services.AddHttpContextAccessor();
+            services.AddAccessTokenManagement();
 
             services.AddScoped<ISharedIdentityService, SharedIdentityService>();
 
@@ -79,7 +80,7 @@ namespace FreeCourse.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}"); 
             });
         }
     }
