@@ -18,8 +18,9 @@ namespace FreeCourse.Web.Models.Catalogs
 
         public DateTime CreatedTime { get; set; }
 
-
         public FeatureViewModel Feature { get; set; }
+
+        public string CategoryId { get; set; }
 
         public CategoryViewModel Category { get; set; }
     }

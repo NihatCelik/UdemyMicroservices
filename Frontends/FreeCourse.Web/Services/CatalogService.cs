@@ -84,7 +84,5 @@ namespace FreeCourse.Web.Services
             var responseSuccess = await response.Content.ReadFromJsonAsync<Response<CourseViewModel>>();
             return responseSuccess.Data;
         }
-
-
     }
 }
