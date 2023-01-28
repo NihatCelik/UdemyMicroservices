@@ -12,11 +12,13 @@ namespace FreeCourse.Web.Controllers
     public class CoursesController : Controller
     {
         private readonly ICatalogService _catalogService;
+        private readonly IPhotoStockService _photoStockService;
         private readonly ISharedIdentityService _sharedIdentityService;
 
-        public CoursesController(ICatalogService catalogService, ISharedIdentityService sharedIdentityService)
+        public CoursesController(ICatalogService catalogService, IPhotoStockService photoStockService, ISharedIdentityService sharedIdentityService)
         {
             _catalogService = catalogService;
+            _photoStockService = photoStockService;
             _sharedIdentityService = sharedIdentityService;
         }
 
@@ -87,8 +89,9 @@ namespace FreeCourse.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(string id, string picture)
         {
+            await _photoStockService.DeletePhoto(picture);
             await _catalogService.DeleteCourseAsync(id);
 
             return RedirectToAction(nameof(Index));
