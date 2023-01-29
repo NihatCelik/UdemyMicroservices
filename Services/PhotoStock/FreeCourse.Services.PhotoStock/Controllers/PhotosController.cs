@@ -16,19 +16,30 @@ namespace FreeCourse.Services.PhotoStock.Controllers
         [HttpPost]
         public async Task<IActionResult> PhotoSave(IFormFile photo, CancellationToken cancellationToken)
         {
-            if (photo != null && photo.Length > 0)
+            try
             {
-                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos", photo.FileName);
+                if (photo != null && photo.Length > 0)
+                {
+                    var directoryPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/photos");
+                    if (!Directory.Exists(directoryPath))
+                        Directory.CreateDirectory(directoryPath);
 
-                using var stream = new FileStream(path, FileMode.Create);
-                await photo.CopyToAsync(stream, cancellationToken);
+                    var path = Path.Combine(directoryPath, photo.FileName);
 
-                var returnPath = photo.FileName;
+                    using var stream = new FileStream(path, FileMode.Create);
+                    await photo.CopyToAsync(stream, cancellationToken);
 
-                PhotoDto photoDto = new() { Url = returnPath };
-                return CreateActionResultInstance(Response<PhotoDto>.Success(photoDto, 200));
+                    var returnPath = photo.FileName;
+
+                    PhotoDto photoDto = new() { Url = returnPath };
+                    return CreateActionResultInstance(Response<PhotoDto>.Success(photoDto, 200));
+                }
             }
+            catch (System.Exception ex)
+            {
 
+                throw;
+            }
             return CreateActionResultInstance(Response<PhotoDto>.Fail("Photo is empty", 400));
         }
 

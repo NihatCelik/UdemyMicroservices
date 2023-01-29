@@ -8,6 +8,11 @@ namespace FreeCourse.Web.Models.Catalogs
 
         public string Name { get; set; }
 
+        public string ShortDescription
+        {
+            get => Description.Length > 100 ? Description.Substring(0, 100) + "..." : Description;
+        }
+
         public string Description { get; set; }
 
         public decimal Price { get; set; }
