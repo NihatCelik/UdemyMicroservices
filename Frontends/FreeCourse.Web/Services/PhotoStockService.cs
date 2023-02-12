@@ -27,7 +27,7 @@ namespace FreeCourse.Web.Services
 
         public async Task<PhotoViewModel> UploadPhoto(IFormFile photo)
         {
-            if (photo?.Length <= 0)
+            if (photo == null || photo.Length <= 0)
             {
                 return null;
             }
