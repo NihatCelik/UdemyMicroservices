@@ -1,6 +1,6 @@
-﻿using FreeCourse.Services.Discount.Services;
-using FreeCourse.Shared.Dtos;
+﻿using FreeCourse.Shared.Dtos;
 using FreeCourse.Web.Models.Discounts;
+using FreeCourse.Web.Services.Interfaces;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
