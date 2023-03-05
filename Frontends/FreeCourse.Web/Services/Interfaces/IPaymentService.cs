@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace FreeCourse.Web.Services.Interfaces
 {
-    public class IPaymentService
+    public interface IPaymentService
     {
         Task<bool> ReceivePayment(PaymentInfoInput paymentInfoInput);
     }
